@@ -1,1 +1,5 @@
-print('1')
+from config.hidden import token
+
+
+
+print (token)
