@@ -1,9 +1,9 @@
-from aiogram import Bot, types
-from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
+from creation import dp
 
-from config.hidden import Token
+from handlers import client,admin
 
 
-Doctor = Bot(token=Token)
-dp = Dispatcher(Doctor)
+client.register_client_handlers(dp)
+
+executor.start_polling(dp, skip_updates=True)
