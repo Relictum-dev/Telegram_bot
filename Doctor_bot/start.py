@@ -10,6 +10,4 @@ general.register_general_handlers(dp)
 
 
 
-
-
 executor.start_polling(dp, skip_updates=True)
