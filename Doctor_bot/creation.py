@@ -1,7 +1,7 @@
 from aiogram import Bot
 from aiogram.dispatcher import Dispatcher
 
-from config.hidden import Token
+from config.settings import Token
 
 
 Doctor = Bot(token=Token)
