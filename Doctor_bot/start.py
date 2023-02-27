@@ -2,10 +2,10 @@ from aiogram.utils import executor
 from creation import dp
 
 from handlers import client,admin,general
-from database.register import connected_db
+from database.create_db import Database
 
 async def starting_bot():
-    connected_db()
+    Database()
     general.register_general_handlers(dp)
     
 

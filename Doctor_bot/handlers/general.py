@@ -13,31 +13,22 @@ async def start_message(message : types.Message):
     'Прежде чем мы начнём, прошу авторизироваться или пройти минутную регистрацию' '\n' '\n'
     'С уважением - Профессор Ботвинк', reply_markup=spec_kb)
 
-    global user_id
-    user_id = message.from_user.id
-
-    global user_name
-    user_name = message.from_user.username
-
 
 @dp.message_handler(Text(equals='Регистрация'))
 async def register_user(message : types.Message):
     await message.answer('Введите электронную почту', reply_markup = reg_kb)
 
-    global email 
-    email = message.text
 
-@dp.message_handler(Text(equals='Регистрация'))
-async def register_user(message : types.Message):
-    await message.answer('Введите электронную почту', reply_markup = reg_kb)
+
+@dp.message_handler(Text(equals='Вход'))
+async def enter_user(message: types.Message):
+    await message.answer('Введите логин', reply_markup= autoriz_kb)
+
 
 @dp.message_handler(Text(equals='Отменить регистрацию'))
 async def back_registration (message: types.Message):
     await message.answer('Возвращаю к окну авторизации', reply_markup= spec_kb)
 
-@dp.message_handler(Text(equals='Вход'))
-async def enter_user(message: types.Message):
-    await message.answer('Введите логин', reply_markup= autoriz_kb)
 
 @dp.message_handler(Text(equals='Отменить авторизацию'))
 async def back_autorization (message: types.Message):
