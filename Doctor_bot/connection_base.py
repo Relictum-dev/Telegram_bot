@@ -2,11 +2,17 @@ import sqlite3
 
 async def db_start():
     global db, cursor
-
+    
     db = sqlite3.connect('profile.db')
     cursor = db.cursor()
+    
+    if db:
+        print('Подключение в базе данных...')
+        print('База данных подключена')
+    else:
+        print('Ошибка подключения')
 
-    cursor.execute("CREATE TABLE profile (user_id TEXT PRIMARY KEY, username TEXT, password TEXT, note TEXT)")
+    cursor.execute("CREATE TABLE IF NOT EXISTS profile (id INTEGER PRIMARY KEY AUTOINCREMENT , user_id TEXT, username TEXT, password TEXT, note TEXT)")
     db.commit()
 
 
