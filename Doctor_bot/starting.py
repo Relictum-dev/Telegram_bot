@@ -7,6 +7,7 @@ from database import sql_start
 async def connection_sql(_):
     sql_start()
 
+    
 user.register_handlers(dp)
 
 
